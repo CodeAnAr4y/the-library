@@ -1,13 +1,34 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>the-library</title>
+    <title>The Library</title>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="title-block">
+            <img src="/assets/book.svg" alt="Book" />
+            <div class="header-text">
+              <h2>The Library</h2>
+              <p>Discover your next favorite book</p>
+            </div>
+          </div>
+          <button id="themeBtn" class="theme-btn">
+            <img
+              id="themeIcon"
+              src="/assets/theme/light-mode-icon.svg"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="main"></div>
+    <footer></footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

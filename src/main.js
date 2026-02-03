@@ -1,24 +1,31 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { storage, setTheme } from "./utils/storage.js";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const els = {
+  themeBtn: document.getElementById("themeBtn"),
+  themeIcon: document.getElementById("themeIcon"),
+};
 
-setupCounter(document.querySelector('#counter'))
+function getThemeIconSrc(theme) {
+  return theme === "light"
+    ? "/assets/theme/light-mode-icon.svg"
+    : "/assets/theme/dark-mode-icon.svg";
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  if (els.themeIcon) els.themeIcon.src = getThemeIconSrc(theme);
+}
+
+function setInitTheme() {
+  applyTheme(storage.theme);
+}
+
+function toggleTheme() {
+  const newTheme = storage.theme === "light" ? "dark" : "light";
+  setTheme(newTheme);
+  applyTheme(newTheme);
+}
+
+els.themeBtn.addEventListener("click", toggleTheme);
+
+setInitTheme();

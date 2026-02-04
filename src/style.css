@@ -64,6 +64,8 @@ body {
   margin: 0;
   padding: 0;
   background: var(--background);
+  min-height: 100vh;
+  position: relative;
 }
 
 .container {
@@ -119,7 +121,7 @@ header {
 
 /* Main */
 .main {
-  padding-bottom: 32px;
+  padding-bottom: 80px;
 }
 
 /* Search */
@@ -179,7 +181,7 @@ header {
 }
 
 /* Resulted books */
-.flex {
+.main-sections {
   display: grid;
   grid-template-columns: 1fr 240px;
   gap: 18px;
@@ -203,6 +205,7 @@ header {
   overflow: hidden;
   border: 1px solid var(--border);
   font-family: var(--ff);
+  background: var(--white);
 }
 .cover {
   position: relative;
@@ -238,7 +241,6 @@ header {
 
 .meta {
   padding: 12px;
-  background: var(--white);
 }
 
 .meta h3 {
@@ -253,6 +255,7 @@ header {
 .fav-books-container {
   border: 1px solid var(--border);
   border-radius: 12px;
+  height: fit-content;
 }
 
 .fav-title {
@@ -277,6 +280,60 @@ header {
 .fav-title p {
   font-size: 12px;
 }
+/* Favorite books content */
+.fav-list-container {
+  padding: 0 12px;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.fav-item:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.fav-book-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fav-book-content img {
+  aspect-ratio: 3/4;
+  max-width: 50px;
+  border-radius: 8px;
+}
+
+.fav-cover {
+  aspect-ratio: 3/4;
+  max-width: 50px;
+  place-items: center;
+  background: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fav-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fav-book-text h5 {
+  font-size: 14px;
+}
+.fav-book-text p {
+  font-size: 12px;
+  line-height: 1.2;
+}
+.fav-book-year {
+  opacity: 0.8;
+}
 
 /* Footer */
 footer {
@@ -285,7 +342,7 @@ footer {
   display: flex;
   justify-content: center;
   font-size: 12px;
-  position: inherit;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;

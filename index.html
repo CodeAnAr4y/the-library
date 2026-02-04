@@ -48,12 +48,33 @@
             </div>
             <button id="searchBtn">Search</button>
           </div>
+          <!-- Author filter -->
+          <div class="input-container" style="margin-top: 10px">
+            <div class="input">
+              <select
+                id="authorSelect"
+                aria-label="Filter by author"
+                class="author-filter-select"
+              >
+                <option value="">All authors</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- States -->
+      <div id="loading">Loading…</div>
+      <div id="notFound">Nothing found. Try another title or author.</div>
+      <div id="empty">Start typing to search for books.</div>
+
+      <!-- Results + Favorite books Sections -->
       <div class="container main-sections">
+        <!-- Search results -->
         <section class="books-container">
           <div id="resultsGrid" class="books-grid"></div>
         </section>
+        <!-- Favorite books section -->
         <aside class="fav-books-container">
           <div class="fav-title">
             <img src="/assets/heart.svg" alt="" />
@@ -67,6 +88,7 @@
       </div>
     </div>
 
+    <!-- Footer -->
     <footer>
       <p>
         Powered by
